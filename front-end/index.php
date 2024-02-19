@@ -5,14 +5,14 @@
     require_once "../back-end/models/kennel.php";
 
 
-    $provaProduct = new Product("nome", 23, true, true, true);
-    var_dump($provaProduct);
-    $provaFood = new Food("royale", 20, true, false, true,"22/03/2025", "1kg");
-    var_dump($provaFood);
-    $provaToy = new Toy("giocattolo", 10, false, true, false, "plastic", 30, 20);
-    var_dump($provaToy);
-    $provaKennel = new Kennel("cucica", 10, false, true, false, "tessuso", true);
-    var_dump($provaKennel);
+    $royalCanin = new Food("Royal Canin", 20.00, true, false, true,"22/03/2025", "1kg");
+    $royalCanin->img = "https://farmacialoreto.it/image/cache/catalog/products/259392/puppy-mini-2-10mesi-royal-canin-800g-735x735.webp";
+
+    $palla = new Toy("Palla da tennis", 5.00, false, true, false, "plastic", 30, 20);
+    $palla->img = "https://arcaplanet.vtexassets.com/arquivos/ids/260664/lovedi-gioco-cane-palla-con-punte-tpr-verde.jpg?v=637617648642300000";
+
+    $cucciaBella = new Kennel("Cuccia Bella", 35.00, false, true, false, "tessuso", true);
+    $cucciaBella->img= "https://arcaplanet.vtexassets.com/arquivos/ids/280980/LT_CIAMB-PELOSA-CM-60_10141040--1-.jpg?v=638122241669770000";
 
 
 
@@ -30,7 +30,7 @@
          <!-- LINK MIO CSS -->
         <link rel="stylesheet" href="./css/style.css">
         <!-- TITLE PAGE -->
-        <title>Document</title>
+        <title>PhP OOP 2</title>
     </head>
 
         <!-- START BODY -->
@@ -51,7 +51,163 @@
             <!-- START MAIN -->
             <main>
                 <div class="container">
-                    MAIN
+                    <h4>
+                        I nostri prodotti
+                    </h4>
+                    <hr>
+                    <div class=" d-flex justify-content-between ">
+                        <!-- food -->
+                        <div class="card" style="width: 18rem;">
+                            <img src="<?php echo $royalCanin->img ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5>
+                                    <?php echo $royalCanin->name; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <ul>
+                                        <li>
+                                            Tipo prodotto:
+                                            <?php echo get_class($royalCanin); ?>
+                                        </li>
+                                        <li>
+                                            Prezzo: 
+                                            <?php echo  $royalCanin->price; ?>
+                                            €
+                                        </li>
+                                        <li>
+                                            Scadenza: 
+                                            <?php echo $royalCanin->expiration; ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Gatto:
+                                            <?php 
+                                                if($royalCanin->forCat == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Cane:
+                                            <?php 
+                                                if($royalCanin->forDog == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- toy -->
+                        <div class="card" style="width: 18rem;">
+                            <img src="<?php echo $palla->img ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5>
+                                    <?php echo $palla->name; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <ul>
+                                        <li>
+                                            Tipo prodotto:
+                                            <?php echo get_class($palla); ?>
+                                        </li>
+                                        <li>
+                                            Prezzo: 
+                                            <?php echo  $palla->price; ?>
+                                            €
+                                        </li>
+                                        <li>
+                                            Materiale: 
+                                            <?php echo $palla->material; ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Gatto:
+                                            <?php 
+                                                if($palla->forCat == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Cane:
+                                            <?php 
+                                                if($palla->forDog == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Kennel -->
+                        <div class="card" style="width: 18rem;">
+                            <img src="<?php echo $cucciaBella->img ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5>
+                                    <?php echo $cucciaBella->name; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <ul>
+                                        <li>
+                                            Tipo prodotto:
+                                            <?php echo get_class($cucciaBella); ?>
+                                        </li>
+                                        <li>
+                                            Prezzo: 
+                                            <?php echo  $cucciaBella->price; ?>
+                                            €
+                                        </li>
+                                        <li>
+                                            Materiale: 
+                                            <?php echo $cucciaBella->material; ?>
+                                        </li>
+                                        <li>
+                                            Waterproof: 
+                                            <?php 
+                                                if($cucciaBella->waterproof == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Gatto:
+                                            <?php 
+                                                if($cucciaBella->forCat == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                        <li>
+                                            Adatto al Cane:
+                                            <?php 
+                                                if($cucciaBella->forDog == true){
+                                                    echo "Si";
+                                                }else{
+                                                    echo "No";
+                                                }
+                                            ?>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
+                    
                 </div>
             </main>
             <!-- END MAIN -->
