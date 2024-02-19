@@ -16,7 +16,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            h1Content: 'Titolo pagina',
+            h1Content: 'PHP-OOP-2',
         };
     },
     methods: {

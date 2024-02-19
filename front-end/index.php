@@ -1,3 +1,23 @@
+<?php
+    require_once "../back-end/models/products.php";
+    require_once "../back-end/models/food.php";
+    require_once "../back-end/models/toy.php";
+    require_once "../back-end/models/kennel.php";
+
+
+    $provaProduct = new Product("nome", 23, true, true, true);
+    var_dump($provaProduct);
+    $provaFood = new Food("royale", 20, true, false, true,"22/03/2025", "1kg");
+    var_dump($provaFood);
+    $provaToy = new Toy("giocattolo", 10, false, true, false, "plastic", 30, 20);
+    var_dump($provaToy);
+    $provaKennel = new Kennel("cucica", 10, false, true, false, "tessuso", true);
+    var_dump($provaKennel);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,13 +56,7 @@
             </main>
             <!-- END MAIN -->
 
-            <!-- START FOOTER -->
-            <footer>
-                <div class="container">
-                    FOOTER
-                </div>
-            </footer>
-            <!-- END FOOTER -->
+
         </div>
 
 
