@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__."/products.php";
+require_once __DIR__.'/../traits/size_trait.php';
 
 
 
 class Toy extends Product{
+    use Size;
     public $material;
-    public $width;
-    public $heigth;
+
 
     public function __construct(
         $name,
@@ -15,8 +16,6 @@ class Toy extends Product{
         $forDog,
         $inStock,
         $material,
-        $width,
-        $heigth
     )
     {
         parent::__construct(
@@ -27,8 +26,7 @@ class Toy extends Product{
             $inStock,
         );
         $this->material = $material;
-        $this->width = $width;
-        $this->heigth = $heigth; 
+        
     }
 }
 

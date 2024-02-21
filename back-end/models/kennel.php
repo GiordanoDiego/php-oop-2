@@ -1,8 +1,11 @@
 <?php
 require_once __DIR__.'/products.php';
+require_once __DIR__.'/../traits/size_trait.php';
+
 
 
 class Kennel extends Product{
+    use Size;
     public $material;
     public $waterproof;
 
@@ -13,7 +16,7 @@ class Kennel extends Product{
         $forDog,
         $inStock,
         $material,
-        $waterproof
+        $waterproof,
     )
     {
         parent::__construct(

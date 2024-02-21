@@ -5,17 +5,32 @@
     require_once "../back-end/models/kennel.php";
 
 
-    $royalCanin = new Food("Royal Canin", 20.00, true, false, true,"22/03/2025", "1kg");
-    $royalCanin->img = "https://farmacialoreto.it/image/cache/catalog/products/259392/puppy-mini-2-10mesi-royal-canin-800g-735x735.webp";
-
-    $palla = new Toy("Palla da tennis", 5.00, false, true, false, "plastic", 30, 20);
-    $palla->img = "https://arcaplanet.vtexassets.com/arquivos/ids/260664/lovedi-gioco-cane-palla-con-punte-tpr-verde.jpg?v=637617648642300000";
-
-    $cucciaBella = new Kennel("Cuccia Bella", 35.00, false, true, false, "tessuso", true);
-    $cucciaBella->img= "https://arcaplanet.vtexassets.com/arquivos/ids/280980/LT_CIAMB-PELOSA-CM-60_10141040--1-.jpg?v=638122241669770000";
+    
 
 
 
+
+
+    try{
+        $cucciaBella = new Kennel("Cuccia Bella", 35.00, false, true, false, "tessuso", true);
+        $cucciaBella->img= "https://arcaplanet.vtexassets.com/arquivos/ids/280980/LT_CIAMB-PELOSA-CM-60_10141040--1-.jpg?v=638122241669770000";
+        $cucciaBella->setSize(60,80);
+    }catch (Exception $e) {
+		echo 'Eccezione: inserire un numero per le dimensioni per la CUCCIA';
+    }
+    try{
+        $palla = new Toy("Palla da tennis", 5.00, false, true, false, "plastic", 30, 20);
+        $palla->img = "https://arcaplanet.vtexassets.com/arquivos/ids/260664/lovedi-gioco-cane-palla-con-punte-tpr-verde.jpg?v=637617648642300000";
+        $palla->setSize(a,10); //provo il try catch insererendo un dato non corretto
+    }catch (Error $e) {
+		echo 'Errore: inserire un numero per le dimensioni per la PALLA';
+    }
+    try{
+        $royalCanin = new Food("Royal Canin", 20.00, true, false, true,"22/03/2025", "1kg");
+        $royalCanin->img = "https://farmacialoreto.it/image/cache/catalog/products/259392/puppy-mini-2-10mesi-royal-canin-800g-735x735.webp";
+    }catch (Exception $e) {
+		echo 'Eccezione: controlla l\'inserimento dei dati';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -145,6 +160,12 @@
                                                 }
                                             ?>
                                         </li>
+                                        <li>
+                                            Misure:
+                                            <?php 
+                                                echo $palla->getSize();
+                                            ?>
+                                        </li>
                                     </ul>
                                 </p>
                             </div>
@@ -200,6 +221,12 @@
                                                 }else{
                                                     echo "No";
                                                 }
+                                            ?>
+                                        </li>
+                                        <li>
+                                            Misure:
+                                            <?php 
+                                                echo $cucciaBella->getSize();
                                             ?>
                                         </li>
                                     </ul>
